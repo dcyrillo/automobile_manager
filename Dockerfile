@@ -16,7 +16,7 @@ WORKDIR $APP_FOLDER
 
 COPY --chown=node package*.json ./
 
-RUN npm install --force
+RUN npm install && npm cache clean --force
 
 COPY --chown=node  . .
 
