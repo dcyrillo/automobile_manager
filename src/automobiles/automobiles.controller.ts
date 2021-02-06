@@ -13,6 +13,7 @@ import {
   ApiNotFoundResponse,
   ApiOkResponse,
   ApiOperation,
+  ApiParam,
   ApiTags,
 } from '@nestjs/swagger';
 import { Automobile } from './automobile.entity';
@@ -31,16 +32,8 @@ export class AutomobilesController {
     return this.service.create(dto);
   }
 
-  @Patch(':id')
-  @ApiOperation({ summary: 'Update an automobile' })
-  @ApiOkResponse({ description: 'Update an automobile' })
-  @ApiNotFoundResponse({ description: `Automobile not found` })
-  @HttpCode(HttpStatus.OK)
-  updateOne(@Param() params, @Body() dto: UpdateAutomobileDto): Automobile {
-    return this.service.update(params.id, dto);
-  }
-
   @Delete(':id')
+  @ApiOperation({ summary: 'Delete an automobile' })
   @ApiOkResponse({ description: 'Delete an automobile' })
   @ApiNotFoundResponse({ description: `Automobile not found` })
   delete(@Param('id') id: string) {
@@ -70,5 +63,14 @@ export class AutomobilesController {
   })
   getAutomobileByColor(@Param('color') color: string): Automobile[] {
     return this.service.getByColor(color);
+  }
+
+  @Patch(':id')
+  @ApiOperation({ summary: 'Update an automobile' })
+  @ApiOkResponse({ description: 'Update an automobile' })
+  @ApiNotFoundResponse({ description: `Automobile not found` })
+  @HttpCode(HttpStatus.OK)
+  updateOne(@Param() params, @Body() dto: UpdateAutomobileDto): Automobile {
+    return this.service.update(params.id, dto);
   }
 }
