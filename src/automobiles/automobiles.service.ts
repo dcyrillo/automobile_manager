@@ -12,6 +12,32 @@ export class AutomobilesService {
     return automobile;
   }
 
+  delete(id: string): Automobile {
+    const automobile = this.automobiles.find(
+      (automobile) => automobile.id === id,
+    );
+
+    if (!automobile) {
+      throw new NotFoundException('Automobile not found');
+    }
+    const i = this.automobiles.findIndex((obj) => obj.id === id);
+    this.automobiles.splice(i, 1);
+    return automobile;
+  }
+
+  getAll(): Automobile[] {
+    return this.automobiles;
+  }
+
+  getByBrand(brand: string): Automobile[] {
+    return this.automobiles.filter((automobile) => automobile.brand === brand);
+  }
+
+  getByColor(color: string): Automobile[] {
+    console.log(color);
+    return this.automobiles.filter((automobile) => automobile.color === color);
+  }
+
   update(id: string, dto: UpdateAutomobileDto): Automobile {
     const automobile = this.automobiles.find(
       (automobile) => automobile.id === id,
@@ -22,17 +48,6 @@ export class AutomobilesService {
     automobile.color = dto.color;
     automobile.brand = dto.brand;
     automobile.plate = dto.plate;
-    return automobile;
-  }
-
-  delete(id: string): Automobile {
-    let automobile = this.automobiles.find(
-      (automobile) => automobile.id === id,
-    );
-    if (!automobile) {
-      throw new NotFoundException('Automobile not found');
-    }
-    automobile = null;
     return automobile;
   }
 }

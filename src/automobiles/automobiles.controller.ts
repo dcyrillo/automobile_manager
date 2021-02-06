@@ -7,7 +7,7 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
-import { Delete } from '@nestjs/common/decorators';
+import { Delete, Get } from '@nestjs/common/decorators';
 import {
   ApiCreatedResponse,
   ApiNotFoundResponse,
@@ -43,7 +43,32 @@ export class AutomobilesController {
   @Delete(':id')
   @ApiOkResponse({ description: 'Delete an automobile' })
   @ApiNotFoundResponse({ description: `Automobile not found` })
-  async delete(@Param('id') id: string) {
+  delete(@Param('id') id: string) {
     return this.service.delete(id);
+  }
+
+  @Get('')
+  @ApiOperation({ summary: 'Get all automobiles' })
+  @ApiOkResponse({ description: 'Response contains all automobiles' })
+  getAll(): Automobile[] {
+    return this.service.getAll();
+  }
+
+  @Get(':brand')
+  @ApiOperation({ summary: 'Get automobiles by brands' })
+  @ApiOkResponse({
+    description: 'Response contains all automobiles by brand',
+  })
+  getAutomobileByBrand(@Param('brand') brand: string): Automobile[] {
+    return this.service.getByBrand(brand);
+  }
+
+  @Get(':color')
+  @ApiOperation({ summary: 'Get automobiles by colors' })
+  @ApiOkResponse({
+    description: 'Response contains all automobiles by some color',
+  })
+  getAutomobileByColor(@Param('color') color: string): Automobile[] {
+    return this.service.getByColor(color);
   }
 }
