@@ -7,6 +7,7 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
+import { Delete } from '@nestjs/common/decorators';
 import {
   ApiCreatedResponse,
   ApiNotFoundResponse,
@@ -25,16 +26,24 @@ export class AutomobilesController {
 
   @Post()
   @ApiCreatedResponse({ type: Automobile })
+  @ApiOperation({ summary: 'Create an automobile' })
   createOne(@Body() dto: Automobile): Automobile {
     return this.service.create(dto);
   }
 
   @Patch(':id')
-  @ApiOperation({ summary: 'Update a automobile' })
-  @ApiOkResponse({ description: 'Update a automobile' })
+  @ApiOperation({ summary: 'Update an automobile' })
+  @ApiOkResponse({ description: 'Update an automobile' })
   @ApiNotFoundResponse({ description: `Automobile not found` })
   @HttpCode(HttpStatus.OK)
   updateOne(@Param() params, @Body() dto: UpdateAutomobileDto): Automobile {
     return this.service.update(params.id, dto);
+  }
+
+  @Delete(':id')
+  @ApiOkResponse({ description: 'Delete an automobile' })
+  @ApiNotFoundResponse({ description: `Automobile not found` })
+  async delete(@Param('id') id: string) {
+    return this.service.delete(id);
   }
 }

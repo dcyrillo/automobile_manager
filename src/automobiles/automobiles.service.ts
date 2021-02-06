@@ -24,4 +24,15 @@ export class AutomobilesService {
     automobile.plate = dto.plate;
     return automobile;
   }
+
+  delete(id: string): Automobile {
+    let automobile = this.automobiles.find(
+      (automobile) => automobile.id === id,
+    );
+    if (!automobile) {
+      throw new NotFoundException('Automobile not found');
+    }
+    automobile = null;
+    return automobile;
+  }
 }
