@@ -1,9 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsString, Matches } from 'class-validator';
 
-export class Automobile {
-  id: string;
-
+export class UpdateAutomobileDto {
   @ApiProperty({
     type: String,
     description: `The automobile plate`,
@@ -28,16 +26,9 @@ export class Automobile {
   @ApiProperty({
     type: String,
     description: `The automobile brand `,
-    example: 'toyota',
+    example: 'cadillac',
   })
   @IsString()
   @IsNotEmpty()
   brand: string;
-
-  constructor(id: string, color: string, brand: string, plate: string) {
-    this.id = id;
-    this.plate = plate;
-    this.brand = brand;
-    this.color = color;
-  }
 }
