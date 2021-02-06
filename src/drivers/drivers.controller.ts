@@ -45,7 +45,7 @@ export class DriversController {
     return this.service.getAll();
   }
 
-  @Get(':name')
+  @Get('/name/:name')
   @ApiOperation({ summary: 'Get drivers by name' })
   @ApiOkResponse({
     description: 'Response contains all drivers by name',

@@ -7,13 +7,12 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
-import { Delete, Get } from '@nestjs/common/decorators';
+import { Delete, Get, UsePipes } from '@nestjs/common/decorators';
 import {
   ApiCreatedResponse,
   ApiNotFoundResponse,
   ApiOkResponse,
   ApiOperation,
-  ApiParam,
   ApiTags,
 } from '@nestjs/swagger';
 import { Automobile } from './automobile.entity';
@@ -47,7 +46,7 @@ export class AutomobilesController {
     return this.service.getAll();
   }
 
-  @Get(':brand')
+  @Get('brands/:brand')
   @ApiOperation({ summary: 'Get automobiles by brands' })
   @ApiOkResponse({
     description: 'Response contains all automobiles by brand',
@@ -56,10 +55,10 @@ export class AutomobilesController {
     return this.service.getByBrand(brand);
   }
 
-  @Get(':color')
+  @Get('colors/:color')
   @ApiOperation({ summary: 'Get automobiles by colors' })
   @ApiOkResponse({
-    description: 'Response contains all automobiles by some color',
+    description: 'Response contains all automobiles by colors',
   })
   getAutomobileByColor(@Param('color') color: string): Automobile[] {
     return this.service.getByColor(color);

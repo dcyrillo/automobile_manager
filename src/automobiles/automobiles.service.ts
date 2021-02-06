@@ -30,14 +30,18 @@ export class AutomobilesService {
   }
 
   getByBrand(brand: string): Automobile[] {
-    return this.automobiles.filter((automobile) => automobile.brand === brand);
+    const auxAutomobiles = this.automobiles.filter(
+      (automobile) => automobile.brand === brand,
+    );
+    return auxAutomobiles;
   }
 
   getByColor(color: string): Automobile[] {
-    console.log(color);
-    return this.automobiles.filter((automobile) => automobile.color === color);
+    const auxAutomobiles = this.automobiles.filter(
+      (automobile) => automobile.color === color,
+    );
+    return auxAutomobiles;
   }
-
   update(id: string, dto: UpdateAutomobileDto): Automobile {
     const automobile = this.automobiles.find(
       (automobile) => automobile.id === id,

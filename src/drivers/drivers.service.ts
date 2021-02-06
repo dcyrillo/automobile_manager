@@ -29,7 +29,8 @@ export class DriversService {
   }
 
   getByName(name: string): Driver[] {
-    return this.drivers.filter((driver) => driver.name === name);
+    const auxDrivers = this.drivers.filter((driver) => driver.name === name);
+    return auxDrivers;
   }
 
   update(id: string, dto: UpdateDriverDto): Driver {
