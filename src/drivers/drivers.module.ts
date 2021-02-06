@@ -7,5 +7,6 @@ import { DriversService } from './drivers.service';
   imports: [Driver],
   controllers: [DriversController],
   providers: [DriversService],
+  exports: [Driver, DriversService],
 })
 export class DriversModule {}

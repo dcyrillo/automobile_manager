@@ -14,12 +14,14 @@ import {
   ApiNotFoundResponse,
   ApiOkResponse,
   ApiOperation,
+  ApiTags,
 } from '@nestjs/swagger';
 import { Driver } from './driver.entity';
 import { DriversService } from './drivers.service';
 import { UpdateDriverDto } from './dtos/update.drive.dto';
 
 @Controller('drivers')
+@ApiTags('drivers')
 export class DriversController {
   constructor(public service: DriversService) {}
 

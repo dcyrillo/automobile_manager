@@ -7,7 +7,7 @@ export class Driver {
   @ApiProperty({
     type: String,
     description: `Driver's name `,
-    example: 'Carlos Eduardo Magalhaes Cyrillo',
+    example: `Carlos Eduardo Magalhães Cyrillo`,
   })
   @IsString()
   @IsNotEmpty()
