@@ -33,6 +33,9 @@ export class AutomobilesService {
     const auxAutomobiles = this.automobiles.filter(
       (automobile) => automobile.brand === brand,
     );
+    if (!auxAutomobiles) {
+      throw new NotFoundException('Automobile not found');
+    }
     return auxAutomobiles;
   }
 
@@ -40,8 +43,12 @@ export class AutomobilesService {
     const auxAutomobiles = this.automobiles.filter(
       (automobile) => automobile.color === color,
     );
+    if (!auxAutomobiles) {
+      throw new NotFoundException('Automobile not found');
+    }
     return auxAutomobiles;
   }
+
   update(id: string, dto: UpdateAutomobileDto): Automobile {
     const automobile = this.automobiles.find(
       (automobile) => automobile.id === id,

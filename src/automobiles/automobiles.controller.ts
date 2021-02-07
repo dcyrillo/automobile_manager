@@ -41,6 +41,7 @@ export class AutomobilesController {
 
   @Get('')
   @ApiOperation({ summary: 'Get all automobiles' })
+  @ApiNotFoundResponse({ description: `Automobile not found` })
   @ApiOkResponse({ description: 'Response contains all automobiles' })
   getAll(): Automobile[] {
     return this.service.getAll();
@@ -60,6 +61,7 @@ export class AutomobilesController {
   @ApiOkResponse({
     description: 'Response contains all automobiles by colors',
   })
+  @ApiNotFoundResponse({ description: `Automobile not found` })
   getAutomobileByColor(@Param('color') color: string): Automobile[] {
     return this.service.getByColor(color);
   }

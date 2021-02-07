@@ -31,4 +31,10 @@ export class UpdateAutomobileDto {
   @IsString()
   @IsNotEmpty()
   brand: string;
+
+  constructor(color: string, brand: string, plate: string) {
+    this.plate = plate;
+    this.brand = brand;
+    this.color = color;
+  }
 }
