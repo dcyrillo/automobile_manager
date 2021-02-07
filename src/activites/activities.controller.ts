@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 import {
   ApiCreatedResponse,
+  ApiForbiddenResponse,
   ApiNotFoundResponse,
   ApiOkResponse,
   ApiOperation,
@@ -25,6 +26,9 @@ export class ActivitiesController {
   @Post()
   @ApiCreatedResponse({ type: Activity })
   @ApiOperation({ summary: 'Create an activity' })
+  @ApiForbiddenResponse({
+    description: 'This driver already schedule in one activity',
+  })
   createOne(@Body() dto: Activity): Activity {
     return this.service.create(dto);
   }
