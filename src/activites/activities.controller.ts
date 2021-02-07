@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Get,
   HttpCode,
   HttpStatus,
   Param,
@@ -40,5 +41,12 @@ export class ActivitiesController {
   @HttpCode(HttpStatus.OK)
   finish(@Param() params): Activity {
     return this.service.finish(params.id);
+  }
+
+  @Get('')
+  @ApiOperation({ summary: 'Get all activities' })
+  @ApiOkResponse({ description: 'Response contains all activities' })
+  getAll(): Activity[] {
+    return this.service.getAll();
   }
 }

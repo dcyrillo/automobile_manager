@@ -44,4 +44,8 @@ export class ActivitiesService {
     activity.isUsing = false;
     return activity;
   }
+
+  getAll(): Activity[] {
+    return this.activities;
+  }
 }
