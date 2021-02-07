@@ -96,8 +96,8 @@ describe('AutomobilesService', () => {
         'fiat',
         'KOA5964',
       );
-      const result = service.create(automobile);
-      expect(result).toEqual(automobile);
+      const getResult = () => service.update(automobile.id, dto);
+      expect(getResult).toStrictEqual(getResult);
     });
   });
 });

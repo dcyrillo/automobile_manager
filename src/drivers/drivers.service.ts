@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { NotFoundException } from '@nestjs/common/exceptions/not-found.exception';
 import { Driver } from './driver.entity';
-import { UpdateDriverDto } from './dtos/update.drive.dto';
+import { UpdateDriverDto } from './dtos/update.driver.dto';
 
 @Injectable()
 export class DriversService {
@@ -30,6 +30,9 @@ export class DriversService {
 
   getByName(name: string): Driver[] {
     const auxDrivers = this.drivers.filter((driver) => driver.name === name);
+    if (!auxDrivers) {
+      throw new NotFoundException('Drivers not found');
+    }
     return auxDrivers;
   }
 

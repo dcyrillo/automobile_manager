@@ -18,7 +18,7 @@ import {
 } from '@nestjs/swagger';
 import { Driver } from './driver.entity';
 import { DriversService } from './drivers.service';
-import { UpdateDriverDto } from './dtos/update.drive.dto';
+import { UpdateDriverDto } from './dtos/update.driver.dto';
 
 @Controller('drivers')
 @ApiTags('drivers')
@@ -52,6 +52,7 @@ export class DriversController {
   @ApiOkResponse({
     description: 'Response contains all drivers by name',
   })
+  @ApiNotFoundResponse({ description: `Drivers not found` })
   getDriversByName(@Param('name') name: string): Driver[] {
     return this.service.getByName(name);
   }

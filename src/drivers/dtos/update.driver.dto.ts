@@ -10,4 +10,8 @@ export class UpdateDriverDto {
   @IsString()
   @IsNotEmpty()
   name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
 }
