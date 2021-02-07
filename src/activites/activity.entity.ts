@@ -1,5 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsBoolean, IsDate, IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty } from 'class-validator';
+import { Automobile } from '../automobiles/automobile.entity';
+import { Driver } from '../drivers/driver.entity';
 
 export class Activity {
   id: string;
@@ -10,9 +12,7 @@ export class Activity {
     example: '2020-11-21T06:20:32.232Z',
     description: `It's a date that was request the activity`,
   })
-  @IsNotEmpty()
-  @IsString()
-  dateStart: string;
+  dateStart: Date;
 
   @ApiProperty({
     description:
@@ -38,22 +38,41 @@ export class Activity {
 
   @ApiProperty({
     type: 'object',
-    description: `Identification of driver by unique ids`,
-    example: ` {
-        "id": "etw3nx4i7",
+    description: `Driver object`,
+    example: ` { 
+    "id": "utfz9oqup",
+    "name": "Pedro,
     }`,
   })
   @IsNotEmpty()
-  driverId: string;
+  driver: Driver;
 
   @ApiProperty({
     type: 'object',
-    description: `Identification of automobile by unique id`,
-    example: `  {
-        "id": "mhwk67ziy",
-        
-    }`,
+    description: `Automobile object`,
+    example: ` {
+      "id": "rucp59uky",
+      "plate": "xxx9999",
+      "brand": "fiat",
+      "color": "preto"
+  }`,
   })
   @IsNotEmpty()
-  automobileId: string;
+  automobile: Automobile;
+
+  constructor(
+    id: string,
+    dateStart: Date,
+    description: string,
+    automobile: Automobile,
+    driver: Driver,
+    isUsing: boolean,
+  ) {
+    this.id = id;
+    this.dateStart = dateStart;
+    this.description = description;
+    this.driver = driver;
+    this.automobile = automobile;
+    this.isUsing = isUsing;
+  }
 }

@@ -25,18 +25,6 @@ export class AutomobilesService {
     return automobile;
   }
 
-  findOneAutomobile(id: string): Automobile {
-    console.log(id);
-    const automobile = this.automobiles.find(
-      (automobile) => automobile.id === id,
-    );
-
-    if (!automobile) {
-      throw new NotFoundException('Automobile not found');
-    }
-    return automobile;
-  }
-
   getAll(): Automobile[] {
     return this.automobiles;
   }

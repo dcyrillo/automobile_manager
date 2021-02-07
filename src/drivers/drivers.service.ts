@@ -24,15 +24,6 @@ export class DriversService {
     return driver;
   }
 
-  findOne(id: string): Driver {
-    const driver = this.drivers.find((driver) => driver.id === id);
-
-    if (!driver) {
-      throw new NotFoundException('Driver not found');
-    }
-    return driver;
-  }
-
   getAll(): Driver[] {
     return this.drivers;
   }
