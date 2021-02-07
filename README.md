@@ -24,7 +24,9 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[Automobile ](https://github.com/dcyrillo/automobile_management) Application repository.
+
+- It is a simple application that manages routines, automobiles and mortorists
 
 ## Installation
 
@@ -37,25 +39,38 @@ $ npm install
 ```bash
 # development
 $ npm run start
+or
+$ docker-compose-up
 
 # watch mode
 $ npm run start:dev
 
-# production mode
-$ npm run start:prod
+
+```
+
+## GETTING ACESS TO DOCUMENTATION, FOLLOW THE STEPS BELOW:
+
+```bash
+# first step
+ - go to your terminal and place one of thoses commands:
+
+$ npm run start
+or
+$ docker-compose-up
+
+# second step
+- go to your navegator and place this url:
+
+http://localhost:3000/api/#/
+
+
 ```
 
 ## Test
 
 ```bash
 # unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+$ npm run test:watch
 ```
 
 ## Support
@@ -64,9 +79,8 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Author - [Carlos Eduardo Magalhães Cyrillo]
+- Website - [https://www.linkedin.com/in/carlos-eduardo-magalh%C3%A3es-cyrillo-a24ab216a/]
 
 ## License
 
