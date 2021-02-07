@@ -1,6 +1,4 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { Automobile } from 'src/automobiles/automobile.entity';
-import { UpdateAutomobileDto } from 'src/automobiles/dtos/update.automobile.dto';
 import { Driver } from './driver.entity';
 import { DriversService } from './drivers.service';
 import { UpdateDriverDto } from './dtos/update.driver.dto';
