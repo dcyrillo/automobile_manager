@@ -24,7 +24,7 @@
 
 ## Description
 
-[Automobile ](https://github.com/dcyrillo/automobile_management) Application repository.
+[Automobile](https://github.com/dcyrillo/automobile_manager) Application repository.
 
 - It is a simple application that manages routines, automobiles and mortorists
 
@@ -48,7 +48,7 @@ $ npm run start:dev
 
 ```
 
-## GETTING ACESS TO DOCUMENTATION, FOLLOW THE STEPS BELOW:
+## Getting acess to documentation, follow the steps below:
 
 ```bash
 # first step
