@@ -10,12 +10,14 @@ async function bootstrap() {
     .setTitle('Automomobile management')
     .setDescription('The automomobile management API description')
     .setContact(
-      'Carlos Eduardo Magalhaes Cyrillo',
+      `Carlos Eduardo Magalhães Cyrillo`,
       'https://github.com/dcyrillo',
       'd.cyrillo@hotmail.com',
     )
     .setVersion('1.0.0')
+    .addTag('activities')
     .addTag('automobiles')
+    .addTag('drivers')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);

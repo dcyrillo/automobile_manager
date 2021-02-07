@@ -27,6 +27,7 @@
     "@nestjs/swagger": "^4.7.12",
     "class-transformer": "^0.3.2",
     "class-validator": "^0.13.1",
+    "date-fns": "^2.17.0",
     "fastify-swagger": "^4.2.0",
     "nodemon": "^2.0.7",
     "reflect-metadata": "^0.1.13",

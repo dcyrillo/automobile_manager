@@ -6,7 +6,7 @@ export class Automobile {
 
   @ApiProperty({
     type: String,
-    description: `The automobile plate`,
+    description: `The automobile's plate`,
     example: 'KOA5964',
   })
   @IsString()
@@ -18,7 +18,7 @@ export class Automobile {
 
   @ApiProperty({
     type: String,
-    description: `The automobile color `,
+    description: `The automobile's color `,
     example: 'blue',
   })
   @IsString()
@@ -27,7 +27,7 @@ export class Automobile {
 
   @ApiProperty({
     type: String,
-    description: `The automobile brand `,
+    description: `The automobile's brand `,
     example: 'toyota',
   })
   @IsString()
