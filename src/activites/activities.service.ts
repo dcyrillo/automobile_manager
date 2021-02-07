@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { Activity } from './activity.entity';
 
 @Injectable()
@@ -14,8 +14,20 @@ export class ActivitiesService {
       dto.automobile,
       dto.driver,
       true,
+      null,
     );
     this.activities.push(activity);
+    return activity;
+  }
+
+  finish(id: string): Activity {
+    const activity = this.activities.find((activity) => activity.id === id);
+
+    if (!activity) {
+      throw new NotFoundException('Automobile not found');
+    }
+    activity.dateFinish = new Date(Date.now());
+    activity.isUsing = false;
     return activity;
   }
 }

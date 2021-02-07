@@ -1,7 +1,16 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  HttpCode,
+  HttpStatus,
+  Param,
+  Patch,
+  Post,
+} from '@nestjs/common';
 import {
   ApiCreatedResponse,
   ApiNotFoundResponse,
+  ApiOkResponse,
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
@@ -16,8 +25,16 @@ export class ActivitiesController {
   @Post()
   @ApiCreatedResponse({ type: Activity })
   @ApiOperation({ summary: 'Create an activity' })
-  @ApiNotFoundResponse({ description: `Automobile not found` })
   createOne(@Body() dto: Activity): Activity {
     return this.service.create(dto);
+  }
+
+  @Patch(':id')
+  @ApiOperation({ summary: 'Finish an activity ' })
+  @ApiOkResponse({ description: 'Finished an activity' })
+  @ApiNotFoundResponse({ description: `Activity not found` })
+  @HttpCode(HttpStatus.OK)
+  finish(@Param() params): Activity {
+    return this.service.finish(params.id);
   }
 }

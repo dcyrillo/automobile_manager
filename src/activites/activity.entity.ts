@@ -67,6 +67,7 @@ export class Activity {
     automobile: Automobile,
     driver: Driver,
     isUsing: boolean,
+    dateFinish: Date,
   ) {
     this.id = id;
     this.dateStart = dateStart;
@@ -74,5 +75,6 @@ export class Activity {
     this.driver = driver;
     this.automobile = automobile;
     this.isUsing = isUsing;
+    this.dateFinish = dateFinish;
   }
 }
